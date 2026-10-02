@@ -1,0 +1,15 @@
+name: Deploy to Render
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: render-deploy@v1
+        with:
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          service-id: wingo-bot
+          wait-for-success: true

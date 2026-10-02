@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f0f23">
+  <title>Wingo Bot — Real-Time Big/Small Predictor</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Wingo Bot</h1>
+      <select id="modeSelector" class="mode-selector">
+        <option value="1m">1 Minute</option>
+        <option value="30s">30 Seconds</option>
+        <option value="3m">3 Minutes</option>
+        <option value="5m">5 Minutes</option>
+        <option value="10m">10 Minutes</option>
+      </select>
+    </header>
+    <div id="mainContent" class="main-content">
+      <div class="prediction-card">
+        <span id="countdown" class="countdown">60s</span>
+        <div class="period-info">
+          <span class="period-label">Next Period</span>
+          <span id="nextPeriod" class="period-value">--</span>
+        </div>
+        <div class="prediction-wrapper">
+          <div id="predictionResult" class="prediction-badge small">
+            <span id="predictionText">--</span>
+            <span class="confidence" id="confidenceBadge">--%</span>
+          </div>
+          <span class="source-badge" id="sourceBadge">API Live</span>
+        </div>
+      </div>
+      <div class="analysis-section">
+        <h2>Pattern Analysis</h2>
+        <div id="algorithmsList" class="algorithms-list">
+          <div class="algorithm-item"><span class="algorithm-name">Loading...</span></div>
+        </div>
+      </div>
+      <div class="history-section">
+        <h2>Recent Results</h2>
+        <div class="history-table-wrapper">
+          <table class="history-table">
+            <thead><tr><th>Period</th><th>Number</th><th>Size</th><th>Color</th></tr></thead>
+            <tbody id="historyBody"><tr><td colspan="4" class="loading-row">Loading...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer class="app-footer">
+      <p>Wingo Bot | Real-time analysis</p>
+      <p class="last-update">Last update: <span id="lastUpdate">--</span></p>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
