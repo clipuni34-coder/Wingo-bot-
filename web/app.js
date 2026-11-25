@@ -95,8 +95,9 @@
     var locked = lockedPrediction;
     if (elements.nextPeriod) elements.nextPeriod.textContent = formatPeriod(locked.period);
     if (elements.sourceBadge) {
-      var isApi = data.source === 'api';
-      elements.sourceBadge.textContent = isApi ? 'fb999.com Live' : 'Local';
+      if (data.source === 'api') elements.sourceBadge.textContent = 'fb999.com Live';
+      else if (data.source === 'demo') elements.sourceBadge.textContent = 'Demo Data (live API unreachable)';
+      else elements.sourceBadge.textContent = 'Local';
     }
     if (elements.predictionResult && elements.predictionText && elements.confidenceBadge) {
       var isSkip = locked.prediction === 'SKIP' || !locked.shouldBet;
