@@ -21,10 +21,11 @@
       </select>
     </header>
     <div id="mainContent" class="main-content">
-      <div class="prediction-card">
+      <div class="prediction-card" id="predictionCard">
         <span id="countdown" class="countdown">60s</span>
+        <div id="bettingLockedBadge" class="betting-locked-badge hidden">🔒 Betting Locked</div>
         <div class="period-info">
-          <span class="period-label">Next Period</span>
+          <span class="period-label">Locked Period</span>
           <span id="nextPeriod" class="period-value">--</span>
         </div>
         <div class="prediction-wrapper">
@@ -32,11 +33,29 @@
             <span id="predictionText">--</span>
             <span class="confidence" id="confidenceBadge">--%</span>
           </div>
+          <span id="leanText" class="lean-text">--</span>
           <span class="source-badge" id="sourceBadge">API Live</span>
         </div>
+        <div class="winrate-tracker" id="winrateTracker">
+          <div class="winrate-item">
+            <span class="winrate-label">Win Rate</span>
+            <span id="winRateValue" class="winrate-value">--%</span>
+          </div>
+          <div class="winrate-divider"></div>
+          <div class="winrate-item">
+            <span class="winrate-label">Record</span>
+            <span id="recordValue" class="winrate-value">--</span>
+          </div>
+          <div class="winrate-divider"></div>
+          <div class="winrate-item">
+            <span class="winrate-label">Break-even</span>
+            <span class="winrate-value">51.02%</span>
+          </div>
+        </div>
+        <div id="skipReason" class="skip-reason hidden"></div>
       </div>
       <div class="analysis-section">
-        <h2>Pattern Analysis</h2>
+        <h2>Pattern Analysis <span class="section-note">(walk-forward weighted)</span></h2>
         <div id="algorithmsList" class="algorithms-list">
           <div class="algorithm-item"><span class="algorithm-name">Loading...</span></div>
         </div>
@@ -47,6 +66,16 @@
           <table class="history-table">
             <thead><tr><th>Period</th><th>Number</th><th>Size</th><th>Color</th></tr></thead>
             <tbody id="historyBody"><tr><td colspan="4" class="loading-row">Loading...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="history-section">
+        <h2>Prediction Ledger <span class="section-note">(Predicted vs Actual)</span></h2>
+        <div id="ledgerSummary" class="ledger-summary">--</div>
+        <div class="history-table-wrapper">
+          <table class="history-table">
+            <thead><tr><th>Period</th><th>Predicted</th><th>Actual</th><th>Result</th></tr></thead>
+            <tbody id="ledgerBody"><tr><td colspan="4" class="loading-row">No graded predictions yet</td></tr></tbody>
           </table>
         </div>
       </div>
